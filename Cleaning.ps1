@@ -65,6 +65,7 @@ function DisplayDiskSpaceBeforeCleaning ()
 function RunDiskCleanup ()
 {
     cleanmgr /verylowdisk
+    #TODO: Figure out how to make this not run async
 }
 
 function FlushDNS ()
