@@ -38,6 +38,8 @@ function DisplayOperatingSystem
 
 function CloseOpenBrowsers ()
 {
+    Write-Host "Closing any open browsers..."  -ForegroundColor Yellow
+    Write-Host ""
     if ($ChromeRunning)
     {
         $ChromeRunning | Stop-Process -Force
