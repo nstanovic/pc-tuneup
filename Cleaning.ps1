@@ -150,7 +150,7 @@ function DisplayDiskSpaceAfter ()
     3. function to display a summary that's easier to understand. 
         It's confusing to look at only starting and ending free space to determine how effective was the cleaning
         My brain hurts too much to even make the minimal effort to figure out the math or type one more line of code
-    4. function to show how much space (MB) was cleared by each command by comparing foldder sizes 
+    4. function to show how much space (MB) was cleared by comparing 'before' and 'after' folder sizes 
 #>
 
 function CleanupWindows ()
