@@ -94,7 +94,7 @@ function CleanupBrowsers ()
         {
             $CacheFolderList = 
             @(
-                'Cache2\*'
+                'cache2\*'
                 'thumbnails\*'
             )
 
