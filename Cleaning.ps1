@@ -85,24 +85,19 @@ function CleanupBrowsers ()
             Remove-Item -Path $ChromeCache -Recurse -Force 
             Write-Host "    Chrome Cache Cleared." -ForegroundColor Green
         }
-    elseif ($EdgeExist)
+
+    if ($EdgeExist)
         {
             Remove-Item -Path $EdgeCache -Recurse -Force 
             Write-Host "    Edge Cache Cleared." -ForegroundColor Green
         }
-    elseif ($FirefoxExist)
+    
+    if ($FirefoxExist)
         {
-            $CacheFolderList = 
-            @(
-                'cache2\*'
-                'thumbnails\*'
-            )
-
-            foreach ($Folder in $CacheFolderList) 
-            {
-                Remove-Item -Path "$FirefoxLocal\$Folder" -Recurse -Force
-                Remove-Item -Path "$FirefoxRoaming\$Folder" -Recurse -Force
-            }
+            Remove-Item -Path "$FirefoxLocal\cache2" -Recurse -Force
+            Remove-Item -Path "$FirefoxLocal\thumbnails" -Recurse -Force
+            Remove-Item -Path "$FirefoxRoaming\cache2" -Recurse -Force
+            Remove-Item -Path "$FirefoxRoaming\thumbnails" -Recurse -Force
 
             Write-Host "    Firefox Cache Cleared." -ForegroundColor Green
         }
