@@ -130,6 +130,14 @@ function DisplayDiskSpaceAfter ()
     Format-Table -AutoSize
 }
 
+<# TODOs: 
+    1. function to display a summary of free space (MB) created
+    2. integrate dotnet stopwatch to time the cleaning
+    3. function to display a summary that's easier to understand. 
+        It's confusing to look at only starting and ending free space to determine how effective was the cleaning
+        My brain hurts too much to even make the minimal effort to figure out the math or type one more line of code
+#>
+
 function CleanupWindows ()
 {
     DisplayOperatingSystem
