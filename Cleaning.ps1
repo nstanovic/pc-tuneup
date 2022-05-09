@@ -51,15 +51,18 @@ function CloseOpenBrowsers ()
 {
     Write-Host "Closing any open browsers..."  -ForegroundColor Yellow
     Write-Host ""
-    if ($ChromeRunning)
+   
+   if ($ChromeRunning)
     {
         $ChromeRunning | Stop-Process -Force
     }
-    elseif ($EdgeRunning)
+    
+    if ($EdgeRunning)
     {
         $EdgeRunning | Stop-Process -Force
     }
-    elseif ($FirefoxRunning)
+    
+    if ($FirefoxRunning)
     {
         $FirefoxRunning | Stop-Process -Force
     }
