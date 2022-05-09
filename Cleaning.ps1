@@ -106,7 +106,7 @@ function CleanupBrowsers ()
 function CleanupTempFiles ()
 {
     Write-Host "Deleting Temp Files..." -ForegroundColor Yellow
-    Remove-Item -Path C:\Windows\Temp\* -Recurse -Force  -ErrorAction SilentlyContinue
+    Remove-Item -Path $env:TEMP\* -Recurse -Force  -ErrorAction SilentlyContinue
     Write-Host "    Temp Files Deleted." -ForegroundColor Green
     
 
