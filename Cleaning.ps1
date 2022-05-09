@@ -56,7 +56,7 @@ function CloseOpenBrowsers ()
 
 function DisplayDiskSpaceBeforeCleaning ()
 {
-    Get-CimInstance Win32_LogicalDisk | Where-Object { $_.DriveType -eq "3" } |
+    Get-CimInstance Win32_LogicalDisk | Where-Object { $_.DeviceID -eq "C:" } |
     Select-Object SystemName,
                     @{ Name = "Drive"; Expression = { ($_.DeviceID) } },
                     @{ Name = "Size (MB)"; Expression = { "{0:N1}" -f ($_.Size / 1mb) } },
@@ -122,7 +122,7 @@ function CleanupTempFiles ()
 
 function DisplayDiskSpaceAfter ()
 {
-    Get-CimInstance Win32_LogicalDisk | Where-Object { $_.DriveType -eq "3" } |
+    Get-CimInstance Win32_LogicalDisk | Where-Object { $_.DeviceID -eq "C:" } |
     Select-Object SystemName,
                     @{ Name = "Drive"; Expression = { ($_.DeviceID) } },
                     @{ Name = "Size (MB)"; Expression = { "{0:N1}" -f ($_.Size / 1mb) } },
