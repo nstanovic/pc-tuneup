@@ -136,7 +136,6 @@ function DisplayDiskSpaceAfter ()
 function CleanupWindows ()
 {
     DisplayOperatingSystem
-    Start-Sleep -Seconds 5
     DisplayDiskSpaceBeforeCleaning
     Start-Sleep -Seconds 5
     CloseOpenBrowsers
