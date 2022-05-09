@@ -5,7 +5,16 @@
 Nick Stanovic
 Premium Tech Support
 Created: May 8, 2022
+
+Disclaimer
+---
+If script not ran in Powershell as admin, the cleanmgr portion will not work correctly
+Can copy and paste this entire code into Powershell prompt as admin and then press enter
+No need to save a file on the pc first or bypass Powershell execution policy this way
+This script does not generate any logs or add any files to a computer
+Only use on Win10 and Win11 Home/Pro machines.
 #>
+
 
 ###############
 ## Variables ##
