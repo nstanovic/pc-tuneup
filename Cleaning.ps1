@@ -67,7 +67,7 @@ function DisplayDiskSpaceBeforeCleaning ()
 function RunDiskCleanup ()
 {
     cleanmgr /verylowdisk
-    Read-Host "When Disk Cleanup is complete, click OK then press the Enter key to continue"
+    Read-Host "When Disk Cleanup is complete, click OK then press the Enter key twice to continue"
 }
 
 function FlushDNS ()
