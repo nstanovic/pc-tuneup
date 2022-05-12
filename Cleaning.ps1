@@ -43,7 +43,7 @@ $FirefoxRunning = Get-Process firefox -ErrorAction SilentlyContinue
 ###############
 function DisplayOperatingSystem
 {
-    cls
+    Clear-Host
     Write-Host "We are running on $OSName." -ForegroundColor Green
 }
 
