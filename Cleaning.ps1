@@ -17,7 +17,6 @@ Do not run this code to clean your school or work computer!
 Your IT department has a special setup to handle cleaning your device.
 #>
 
-
 ###############
 ## Variables ##
 ###############
@@ -37,6 +36,7 @@ $FirefoxLocal = "$env:localappdata\Mozilla\Firefox\Profiles\*.default-release"
 $FirefoxRoaming = "$env:appdata\Mozilla\Firefox\Profiles\*.default-release"
 $FirefoxExist = Test-Path $FirefoxLocal
 $FirefoxRunning = Get-Process firefox -ErrorAction SilentlyContinue
+
 
 ###############
 ## Functions ##
@@ -81,7 +81,21 @@ function DisplayDiskSpaceBeforeCleaning ()
 function RunDiskCleanup ()
 {
     cleanmgr /verylowdisk
-    Read-Host "When Disk Cleanup is complete, click OK then press the Enter key twice to continue"
+    do 
+        {
+            Write-Host "Running Windows Disk Cleanup with all checkboxes checked..."  -ForegroundColor Yellow
+            Start-Sleep -Seconds 5
+        } 
+    until 
+        (
+            (Get-Process -Name cleanmgr).MainWindowTitle -eq 'Disk Space Notification'
+        )
+    Stop-Process -Name cleanmgr
+    <#
+            Disk Cleanup's WindowTitle is 'Disk Cleanup' when running, then 'Disk Space Notification' when finished
+            Stopping cleanmgr once WindowTitle changes allows script to continue without needing user input
+    #>
+    Write-Host "    Disk Cleanup Finished." -ForegroundColor Green
 }
 
 function FlushDNS ()
