@@ -81,9 +81,10 @@ function DisplayDiskSpaceBeforeCleaning ()
 function RunDiskCleanup ()
 {
     cleanmgr /verylowdisk
+    Write-Host "Running Windows Disk Cleanup with all checkboxes checked..."  -ForegroundColor Yellow
     do 
         {
-            Write-Host "Running Windows Disk Cleanup with all checkboxes checked..."  -ForegroundColor Yellow
+            
             Start-Sleep -Seconds 5
         } 
     until 
