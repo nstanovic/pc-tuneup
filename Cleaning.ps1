@@ -137,12 +137,10 @@ function CleanupTempFiles ()
     Write-Host "Deleting Temp Files..." -ForegroundColor Yellow
     Remove-Item -Path $env:TEMP\* -Recurse -Force  -ErrorAction SilentlyContinue
     Write-Host "    Temp Files Deleted." -ForegroundColor Green
-    
 
     Write-Host "Removing Prefetch Data..." -ForegroundColor Yellow
     Remove-Item -Path C:\Windows\Prefetch\*.pf -Recurse -Force -ErrorAction SilentlyContinue
     Write-Host "    Prefetch Data Removed." -ForegroundColor Green
-    
 
     Write-Host "Removing Font Cache..." -ForegroundColor Yellow
     Remove-Item C:\Windows\ServiceProfiles\LocalService\AppData\Local\FontCache* -Recurse -Force -ErrorAction SilentlyContinue
@@ -188,6 +186,7 @@ function CleanupWindows ()
 
     Write-Host "Congratulations! The computer cleanup has finished." -ForegroundColor Cyan
 }
+
     
 ##########################
 ## Start main code here ##
