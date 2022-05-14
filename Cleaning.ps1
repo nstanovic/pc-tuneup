@@ -68,7 +68,7 @@ function CloseOpenBrowsers ()
     }
 }
 
-function DisplayDiskSpaceBeforeCleaning ()
+function DisplayDiskSpace ()
 {
     Get-CimInstance Win32_LogicalDisk | Where-Object { $_.DeviceID -eq "C:" } |
     Select-Object SystemName,
@@ -147,7 +147,7 @@ function CleanupTempFiles ()
     Write-Host "    Font Cache Cleared." -ForegroundColor Green
 }
 
-function DisplayDiskSpaceAfter ()
+function DisplayDiskSpace ()
 {
     Get-CimInstance Win32_LogicalDisk | Where-Object { $_.DeviceID -eq "C:" } |
     Select-Object SystemName,
