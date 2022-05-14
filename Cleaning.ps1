@@ -147,16 +147,6 @@ function CleanupTempFiles ()
     Write-Host "    Font Cache Cleared." -ForegroundColor Green
 }
 
-function DisplayDiskSpace ()
-{
-    Get-CimInstance Win32_LogicalDisk | Where-Object { $_.DeviceID -eq "C:" } |
-    Select-Object SystemName,
-                    @{ Name = "Drive"; Expression = { ($_.DeviceID) } },
-                    @{ Name = "Size (MB)"; Expression = { "{0:N1}" -f ($_.Size / 1mb) } },
-                    @{ Name = "FreeSpace (MB)"; Expression = { "{0:N1}" -f ($_.Freespace / 1mb) } } |
-    Format-Table -AutoSize
-}
-
 <# TODOs: 
     1. function to display a summary of free space (MB) created
     2. integrate dotnet stopwatch to time the cleaning
@@ -169,7 +159,7 @@ function DisplayDiskSpace ()
 function CleanupWindows ()
 {
     DisplayOperatingSystem
-    DisplayDiskSpaceBeforeCleaning
+    DisplayDiskSpace
     Start-Sleep -Seconds 5
     CloseOpenBrowsers
     Start-Sleep -Seconds 5
@@ -181,7 +171,7 @@ function CleanupWindows ()
     Start-Sleep -Seconds 5
     CleanupTempFiles
     Start-Sleep -Seconds 5
-    DisplayDiskSpaceAfter
+    DisplayDiskSpace
     Start-Sleep -Seconds 5
 
     Write-Host "Congratulations! The computer cleanup has finished." -ForegroundColor Cyan
