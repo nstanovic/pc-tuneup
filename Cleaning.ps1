@@ -132,7 +132,7 @@ function CleanupBrowsers ()
         }
 }
 
-function CleanupTempFiles ()
+function ClearFontCache ()
 {
     Write-Host "Removing Font Cache..." -ForegroundColor Yellow
     Remove-Item C:\Windows\ServiceProfiles\LocalService\AppData\Local\FontCache* -Recurse -Force -ErrorAction SilentlyContinue
@@ -161,7 +161,7 @@ function CleanupWindows ()
     Start-Sleep -Seconds 5
     CleanupBrowsers
     Start-Sleep -Seconds 5
-    CleanupTempFiles
+    ClearFontCache
     Start-Sleep -Seconds 5
     DisplayDiskSpace
     Start-Sleep -Seconds 5
